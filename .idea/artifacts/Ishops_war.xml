@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Ishops:war">
+    <output-path>$PROJECT_DIR$/Ishops/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Ishops</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Ishops.war">
+      <element id="artifact" artifact-name="Ishops:war exploded" />
+    </root>
+  </artifact>
+</component>
