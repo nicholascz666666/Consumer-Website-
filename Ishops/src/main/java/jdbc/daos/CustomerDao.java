@@ -231,12 +231,30 @@ public class CustomerDao {
             e.printStackTrace();
         } finally {
             try {
+                connection.close();
                 statement.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
         return status;
+    }
+    public void add(Customer customer){
+        Connection conn =  DBUtil.getConnection();
+        PreparedStatement pst = null;
+        String sql = "insert into customers values(0,?,?,?,?)";
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1,customer.getKeywords());
+            pst.setString(2,customer.getLastname());
+            pst.setString(3,customer.getFirstname());
+            pst.setString(4,customer.getUsername());
+            pst.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            DBUtil.closeConnection(conn,pst,null);
+        }
     }
 
     public Customer login(String username, String password) {

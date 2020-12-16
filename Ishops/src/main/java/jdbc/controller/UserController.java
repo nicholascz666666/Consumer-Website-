@@ -35,7 +35,7 @@ public class UserController {
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         Customer customer = new Customer(0,keywords,lastName,firstName,username);
-        cd.createCustomer(customer);
+        cd.add(customer);
         return "login";
     }
 
